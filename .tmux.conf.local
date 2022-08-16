@@ -47,26 +47,27 @@ tmux_conf_new_session_prompt=false
 tmux_conf_24b_colour=true
 
 # default theme
-tmux_conf_theme_colour_1="#080808"    # dark gray
+tmux_conf_theme_colour_1="#282828"    # dark gray (background)
 tmux_conf_theme_colour_2="#303030"    # gray
-tmux_conf_theme_colour_3="#8a8a8a"    # light gray
-tmux_conf_theme_colour_4="#00afff"    # light blue
-tmux_conf_theme_colour_5="#ffff00"    # yellow
-tmux_conf_theme_colour_6="#080808"    # dark gray
-tmux_conf_theme_colour_7="#e4e4e4"    # white
-tmux_conf_theme_colour_8="#080808"    # dark gray
-tmux_conf_theme_colour_9="#ffff00"    # yellow
-tmux_conf_theme_colour_10="#ff00af"   # pink
-tmux_conf_theme_colour_11="#5fff00"   # green
+tmux_conf_theme_colour_3="#458588"    # brown
+tmux_conf_theme_colour_4="#cc241d"    # light blue <- red
+tmux_conf_theme_colour_5="#98971a"    # yellow <- green
+tmux_conf_theme_colour_6="#d79921"    # dark gray <- yellow
+#tmux_conf_theme_colour_6="#D5D5DE"    # dark gray
+tmux_conf_theme_colour_7="#458588"    # white <- blue
+tmux_conf_theme_colour_8="#B16286"    # dark gray <- purple
+tmux_conf_theme_colour_9="#689D6A"    # yellow <- aqua
+tmux_conf_theme_colour_10="#d65d0e"   # burnt orange <- orane
+tmux_conf_theme_colour_11="#689D6A"   # green
 tmux_conf_theme_colour_12="#8a8a8a"   # light gray
 tmux_conf_theme_colour_13="#e4e4e4"   # white
 tmux_conf_theme_colour_14="#080808"   # dark gray
 tmux_conf_theme_colour_15="#080808"   # dark gray
 tmux_conf_theme_colour_16="#d70000"   # red
 tmux_conf_theme_colour_17="#e4e4e4"   # white
-tmux_conf_theme_colour_18="#097969"   # cadmium green
+tmux_conf_theme_colour_18="#689D6A"   # cadmium green
 tmux_conf_theme_colour_19="#50C878"   # emerald green
-
+tmux_conf_theme_colour_20="#A89984"   # White (Foreground)
 
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
@@ -194,12 +195,15 @@ tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
-# tmux_conf_theme_left_separator_main="\uE0B0\uE0B0 "
-tmux_conf_theme_left_separator_main="\uE0C6 "
+tmux_conf_theme_left_separator_main="\uE0C6"
 tmux_conf_theme_left_separator_sub="\uE0B1"
-# tmux_conf_theme_right_separator_main="\uE0B2"
-tmux_conf_theme_right_separator_main=" \uE0C7\u2593"
+tmux_conf_theme_right_separator_main="\uE0B2"
 tmux_conf_theme_right_separator_sub="\uE0B3"
+
+tmux_conf_theme_left_separator_main=" "
+tmux_conf_theme_left_separator_sub=" "
+tmux_conf_theme_right_separator_main="▞▚▞"
+tmux_conf_theme_right_separator_sub=" "
 
 #tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
 #tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
@@ -233,8 +237,10 @@ tmux_conf_theme_right_separator_sub="\uE0B3"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-
-tmux_conf_theme_status_left=" Αℱ #S "
+   
+#                  ﴮ  ﯟ                         
+ 
+tmux_conf_theme_status_left="   #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
 # tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
 tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} #(if $(/sbin/ifconfig tun0 > /dev/null 2>/dev/null); then /sbin/ifconfig tun0 | /usr/bin/grep 'inet ' | /usr/bin/cut -d ' ' -f 10 2>/dev/null; else /sbin/ifconfig eth0 | /usr/bin/grep 'inet ' | /usr/bin/cut -d ' ' -f 10 2>/dev/null; fi) , %R , %d %b | #{username}#{root} | #{hostname} "
 
@@ -244,22 +250,22 @@ tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?batt
 
 # status left style
 
-tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
-tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_3,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
-tmux_conf_theme_status_left_attr="bold,none,none"
+tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_20,$tmux_conf_theme_colour_1,$tmux_conf_theme_colour_1"
+tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8,$tmux_conf_theme_colour_9"
+tmux_conf_theme_status_left_attr="none,none,none"
 
 # tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
 # tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
 # tmux_conf_theme_status_left_attr="bold,none,none"
 
 tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_14,$tmux_conf_theme_colour_14"
-tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_18,$tmux_conf_theme_colour_3"
+tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_1,$tmux_conf_theme_colour_18,$tmux_conf_theme_colour_3"
 tmux_conf_theme_status_right_attr="none,none,bold"
 
 # status right style
-# tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_14"
-# tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_16,$tmux_conf_theme_colour_17"
-# tmux_conf_theme_status_right_attr="none,none,bold"
+tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_1,#bdae93,$tmux_conf_theme_colour_14"
+tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_5"
+tmux_conf_theme_status_right_attr="none,bold,none"
 
 # pairing indicator
 tmux_conf_theme_pairing="⚇"                 # U+2687
